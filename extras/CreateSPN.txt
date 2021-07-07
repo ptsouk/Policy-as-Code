@@ -5,3 +5,6 @@ az ad sp create-for-rbac --name "AzPolicy-deploy" --role "Resource Policy Contri
 
 
 https://github.com/Azure/manage-azure-policy
+
+
+Get-AzADServicePrincipal -ObjectId 15e17e40-80f3-4cc6-842a-e4fb18a35308
