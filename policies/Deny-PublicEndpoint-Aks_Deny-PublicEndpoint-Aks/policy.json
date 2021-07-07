@@ -1,0 +1,36 @@
+{
+ "properties": {
+  "displayName": "Deny-PublicEndpoint-Aks",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy restricts creation of non-private AKS clusters",
+  "metadata": {
+   "category": "Deny-PublicEndpoint",
+   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
+   "createdOn": "2020-06-23T09:14:42.9357207Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.ContainerService/managedClusters"
+     },
+     {
+      "field": "Microsoft.ContainerService/managedClusters/apiServerAccessProfile.enablePrivateCluster",
+      "notequals": "true"
+     }
+    ]
+   },
+   "then": {
+    "effect": "Deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Aks",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-PublicEndpoint-Aks"
+}

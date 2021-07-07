@@ -1,0 +1,52 @@
+{
+ "properties": {
+  "displayName": "Audit Key Vault Location",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy audits if a Key Vault is provisioned in a not allowed location",
+  "metadata": {
+   "category": "Key Vault",
+   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
+   "createdOn": "2020-06-23T08:17:05.2259017Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "allowedLocation": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Location",
+     "description": "List of approved Azure regions"
+    },
+    "allowedValues": [
+     "westeurope",
+     "northeurope"
+    ],
+    "defaultValue": [
+     "westeurope",
+     "northeurope"
+    ]
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.KeyVault/vaults"
+     },
+     {
+      "field": "location",
+      "notIn": "[parameters('allowedLocation')]"
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/AuditKeyVaultLocation",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "AuditKeyVaultLocation"
+}

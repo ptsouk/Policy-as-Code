@@ -1,0 +1,36 @@
+{
+ "properties": {
+  "displayName": "Deny-PublicEndpoint-Sql",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy restrict creation of Sql servers with exposed public endpoints",
+  "metadata": {
+   "category": "Deny-PublicEndpoint",
+   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
+   "createdOn": "2020-06-23T09:14:53.1728171Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Sql/servers"
+     },
+     {
+      "field": "Microsoft.Sql/servers/publicNetworkAccess",
+      "notequals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "Deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Sql",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-PublicEndpoint-Sql"
+}

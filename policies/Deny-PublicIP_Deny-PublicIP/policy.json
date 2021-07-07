@@ -1,0 +1,28 @@
+{
+ "properties": {
+  "displayName": "Deny-PublicIP",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Denies creation of Public IPs under the assigned scope.",
+  "metadata": {
+   "category": "Deny-PublicEndpoint",
+   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
+   "createdOn": "2020-06-23T14:20:15.9627665Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "field": "type",
+    "equals": "Microsoft.Network/publicIPAddresses"
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicIP",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-PublicIP"
+}

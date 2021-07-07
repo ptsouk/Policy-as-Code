@@ -1,0 +1,57 @@
+{
+ "properties": {
+  "displayName": "Audit-MachineLearning-PrivateEndpointId",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Audit public endpoints that are created in other subscriptions for machine learning.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Machine Learning",
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2021-07-07T08:17:21.4136791Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Audit"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.MachineLearningServices/workspaces"
+     },
+     {
+      "count": {
+       "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections[*]",
+       "where": {
+        "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections[*].privateEndpoint.id",
+        "notContains": "[subscription().id]"
+       }
+      },
+      "greaterOrEquals": 1
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Audit-MachineLearning-PrivateEndpointId",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Audit-MachineLearning-PrivateEndpointId"
+}
