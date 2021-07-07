@@ -1,3 +1,4 @@
+name: policy-compliance-scan
 on:
   schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
