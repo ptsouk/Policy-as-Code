@@ -1,0 +1,25 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Subnets should have a Network Security Group",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "parameters": {},
+  "metadata": {
+   "assignedBy": "Panagiotis Tsoukias",
+   "parameterScopes": {},
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2021-07-07T09:03:48.6765293Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/b8c833d6a70043379a6e34fc",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "b8c833d6a70043379a6e34fc"
+}
