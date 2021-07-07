@@ -11,7 +11,7 @@
   },
   "enforcementMode": "Default"
  },
- "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/Deny-Subnet-Without-Nsg-ES",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/2c09c4a868d3",
  "type": "Microsoft.Authorization/policyAssignments",
- "name": "Deny-Subnet-Without-Nsg-ES"
+ "name": "2c09c4a868d3"
 }
