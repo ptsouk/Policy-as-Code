@@ -1,0 +1,7 @@
+$tenantId = "a6e09f1d-1f05-497b-b499-da099ced752f"
+az login --tenant $tenantId
+#az account set --subscription $subscriptionId
+az ad sp create-for-rbac --name "AzPolicy-deploy" --role "Resource Policy Contributor" --scopes "/providers/Microsoft.Management/managementGroups/ES" --sdk-auth
+
+
+https://github.com/Azure/manage-azure-policy
