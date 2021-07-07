@@ -8,7 +8,9 @@
   "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Nsg",
   "scope": "/providers/Microsoft.Management/managementGroups/ES",
   "notScopes": [],
-  "parameters": {},
+  "parameters": {
+      "effect": "Disabled"
+  },
   "metadata": {
    "assignedBy": "Panagiotis Tsoukias",
    "parameterScopes": {},
