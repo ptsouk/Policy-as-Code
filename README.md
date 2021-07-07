@@ -6,6 +6,8 @@
 
 ## References:
 
+[Enterprise-Scale - Reference Implementation](https://github.com/Azure/Enterprise-Scale)
+
 [Design Azure Policy as Code workflows](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-as-code)
 
 ### Github Azure Policy Actions
