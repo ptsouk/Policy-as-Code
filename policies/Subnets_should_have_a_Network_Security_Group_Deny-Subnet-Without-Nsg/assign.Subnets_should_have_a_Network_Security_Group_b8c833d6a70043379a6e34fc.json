@@ -10,7 +10,7 @@
   "notScopes": [],
   "Parameters": {
     "effect": {
-      "value": "Disabled"
+      "value": "AUdit"
     }
   },
   "metadata": {
