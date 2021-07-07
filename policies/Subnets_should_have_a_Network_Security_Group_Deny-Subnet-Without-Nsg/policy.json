@@ -5,12 +5,7 @@
   "mode": "All",
   "description": "This policy denies the creation of a subnet with out an Network Security Group. NSG help to protect traffic across subnet-level.",
   "metadata": {
-   "version": "1.1.0",
-   "category": "Network",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:22.0057872Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Network"
   },
   "parameters": {
    "effect": {

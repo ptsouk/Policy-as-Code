@@ -36,7 +36,7 @@
    }
   }
  },
- "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Append-KV-SoftDelete",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Append-KV-SoftDelete",
  "type": "Microsoft.Authorization/policyDefinitions",
  "name": "Append-KV-SoftDelete"
 }

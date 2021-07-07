@@ -13,8 +13,8 @@ on:
   push:
     paths:
       - .github/workflows/manage-azure-policy.yml      
-      - 'policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**'
-      - 'policies/Append-KV-SoftDelete_Append-KV-SoftDelete/**'
+#      - 'policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**'
+#      - 'policies/Append-KV-SoftDelete_Append-KV-SoftDelete/**'
 #      - 'policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF/**'
 #      - 'policies/AppService_append_enable_https_only_setting_to_enforce_https_setting._Append-AppService-httpsonly/**'
 #      - 'policies/AppService_append_sites_with_minimum_TLS_version_to_enforce._Append-AppService-latestTLS/**'
@@ -119,5 +119,5 @@ jobs:
       uses: azure/manage-azure-policy@v0
       with:
         paths: |
-          policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**'
-          policies/Append-KV-SoftDelete_Append-KV-SoftDelete/**'
+          policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**
+          policies/Append-KV-SoftDelete_Append-KV-SoftDelete/**

@@ -5,12 +5,7 @@
   "mode": "All",
   "description": "Append the AppService sites object to ensure that min Tls version is set to required minimum TLS version. Please note Append does not enforce compliance use then deny.",
   "metadata": {
-   "version": "1.0.0",
-   "category": "App Service",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.6279931Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "App Service"
   },
   "parameters": {
    "effect": {
