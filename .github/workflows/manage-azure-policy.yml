@@ -122,3 +122,12 @@ jobs:
           policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**
           policies/Append-KV-SoftDelete_Append-KV-SoftDelete/**
           policies/Subnets_should_have_a_Network_Security_Group_Deny-Subnet-Without-Nsg/**
+          policies/Deny-PublicEndpoint-Aks_Deny-PublicEndpoint-Aks/**'
+          policies/Deny-PublicEndpoint-CosmosDB_Deny-PublicEndpoint-CosmosDB/**
+          policies/Deny-PublicEndpoint-KeyVault_Deny-PublicEndpoint-KeyVault/**
+          policies/Deny-PublicEndpoint-MariaDB_Deny-PublicEndpoint-MariaDB/**
+          policies/Deny-PublicEndpoint-MySQL_Deny-PublicEndpoint-MySQL/**
+          policies/Deny-PublicEndpoint-PostgreSql_Deny-PublicEndpoint-PostgreSql/**
+          policies/Deny-PublicEndpoint-Sql_Deny-PublicEndpoint-Sql/**
+          policies/Deny-PublicEndpoint-Storage_Deny-PublicEndpoint-Storage/**
+          policies/Deny-PublicIP_Deny-PublicIP/**

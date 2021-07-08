@@ -4,57 +4,53 @@
   "policyType": "Custom",
   "description": "Deny-Public-Endpoints-for-PaaS-Services",
   "metadata": {
-   "category": "Deny-PublicEndpoint",
-   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
-   "createdOn": "2020-06-23T10:01:44.6363703Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Deny-PublicEndpoint"
   },
   "parameters": {},
   "policyDefinitions": [
    {
     "policyDefinitionReferenceId": "13478947674749235361",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-CosmosDB",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-CosmosDB",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "6405419537633830897",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-MariaDB",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-MariaDB",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "1499364212227461177",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-MySQL",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-MySQL",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "3891587019039243017",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-PostgreSql",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-PostgreSql",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "4231733752323955327",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-KeyVault",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-KeyVault",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "15606291410899162227",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Sql",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Sql",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "4109463851615248701",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Storage",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Storage",
     "parameters": {}
    },
    {
     "policyDefinitionReferenceId": "4954725731915242264",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Aks",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Aks",
     "parameters": {}
    }
   ]
  },
- "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicEndpoints",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicEndpoints",
  "type": "Microsoft.Authorization/policySetDefinitions",
  "name": "Deny-PublicEndpoints"
 }

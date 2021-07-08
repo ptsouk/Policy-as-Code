@@ -5,11 +5,7 @@
   "mode": "All",
   "description": "This policy restrict creation of storage accounts with IP Firewall exposed to all public endpoints",
   "metadata": {
-   "category": "Deny-PublicEndpoint",
-   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
-   "createdOn": "2020-06-23T09:14:55.1895493Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Deny-PublicEndpoint"
   },
   "parameters": {},
   "policyRule": {
@@ -30,7 +26,7 @@
    }
   }
  },
- "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Storage",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicEndpoint-Storage",
  "type": "Microsoft.Authorization/policyDefinitions",
  "name": "Deny-PublicEndpoint-Storage"
 }
