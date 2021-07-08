@@ -87,7 +87,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         allow-no-subscriptions: true
     - name: Create or Update Azure Policies
-      uses: azure/manage-azure-policy@v0
+      uses: azure/manage-azure-policy@v1
       with:
         paths: |
           policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**
