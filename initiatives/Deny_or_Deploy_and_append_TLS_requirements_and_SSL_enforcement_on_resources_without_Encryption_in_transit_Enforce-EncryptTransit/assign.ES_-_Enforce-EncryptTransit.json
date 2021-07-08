@@ -8,6 +8,8 @@
   "enforcementMode": "Default"
  },
  "identity": {
+    "principalId": "fd3f2a41-b40c-48ab-a704-3c0740069acc",
+    "tenantId": "a6e09f1d-1f05-497b-b499-da099ced752f",
     "type": "SystemAssigned"
   },
  "Location": "westeurope",
