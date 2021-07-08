@@ -1,0 +1,13 @@
+{
+ "properties": {
+  "displayName": "ES - Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policySetDefinitions/Enforce-EncryptTransit",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {},
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/ab4d726a87bc",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "ab4d726a87bc"
+}

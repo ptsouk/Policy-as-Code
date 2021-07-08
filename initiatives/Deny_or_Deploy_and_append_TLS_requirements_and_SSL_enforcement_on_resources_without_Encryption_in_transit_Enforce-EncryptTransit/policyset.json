@@ -265,7 +265,7 @@
     "type": "String",
     "metadata": {
      "displayName": "Azure Managed Instance.Select version minimum TLS for Azure Managed Instance",
-     "description": "Select version  minimum TLS version for Azure Managed Instanceto to  enforce"
+     "description": "Select version  minimum TLS version for Azure Managed Instance to  enforce"
     },
     "allowedValues": [
      "1.2",
