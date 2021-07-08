@@ -594,12 +594,12 @@
     "policyDefinitionReferenceId": "StorageDeployHttpsEnabledEffect",
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deploy-Storage-sslEnforcement",
     "parameters": {
-     "effect": {
-      "value": "[parameters('StorageDeployHttpsEnabledEffect')]"
-     },
-     "minimumTlsVersion": {
-      "value": "[parameters('StorageMinimumTlsVersion')]"
-     }
+        "effect": {
+        "value": "[parameters('StorageDeployHttpsEnabledEffect')]"
+        },
+        "minimumTlsVersion": {
+        "value": "[parameters('StorageMinimumTlsVersion')]"
+        }
     }
    }
   ]
