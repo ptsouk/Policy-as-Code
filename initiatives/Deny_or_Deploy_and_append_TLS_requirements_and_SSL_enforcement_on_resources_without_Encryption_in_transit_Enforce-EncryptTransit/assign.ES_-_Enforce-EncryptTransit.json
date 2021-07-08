@@ -8,7 +8,7 @@
   "enforcementMode": "Default"
  },
  "identity": {
-    "principalId": "d8bd1368-e28c-4c26-8ae9-5591c5cdc889",
+    "principalId": "bcebd256-bcfa-4224-a61a-b24f0ec7315f",
     "tenantId": "a6e09f1d-1f05-497b-b499-da099ced752f",
     "type": "SystemAssigned"
   },
