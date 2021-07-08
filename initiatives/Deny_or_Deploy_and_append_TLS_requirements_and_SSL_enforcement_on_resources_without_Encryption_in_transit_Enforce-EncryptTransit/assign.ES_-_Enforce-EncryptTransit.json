@@ -7,6 +7,10 @@
   "Parameters": {},
   "enforcementMode": "Default"
  },
+ "Identity": {
+  "type": "SystemAssigned"
+ },
+ "Location": "westeurope",
  "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/ab4d726a87bc",
  "type": "Microsoft.Authorization/policyAssignments",
  "name": "ab4d726a87bc"
