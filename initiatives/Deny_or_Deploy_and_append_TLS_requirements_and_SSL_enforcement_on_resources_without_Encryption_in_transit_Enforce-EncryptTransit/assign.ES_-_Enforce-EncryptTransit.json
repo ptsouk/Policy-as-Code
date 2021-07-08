@@ -7,9 +7,11 @@
   "Parameters": {},
   "enforcementMode": "Default"
  },
- "Identity": {
-  "type": "SystemAssigned"
- },
+ "identity": {
+    "principalId": "d8bd1368-e28c-4c26-8ae9-5591c5cdc889",
+    "tenantId": "a6e09f1d-1f05-497b-b499-da099ced752f",
+    "type": "SystemAssigned"
+  },
  "Location": "westeurope",
  "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/ab4d726a87bc",
  "type": "Microsoft.Authorization/policyAssignments",
