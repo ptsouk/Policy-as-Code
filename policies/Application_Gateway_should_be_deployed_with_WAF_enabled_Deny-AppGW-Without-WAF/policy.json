@@ -5,7 +5,8 @@
   "mode": "Indexed",
   "description": "This policy enables you to restrict that Application Gateways is always deployed with WAF enabled",
   "metadata": {
-   "category": "Network"
+    "version": "1.0.0",
+    "category": "Network"
   },
   "parameters": {
    "effect": {

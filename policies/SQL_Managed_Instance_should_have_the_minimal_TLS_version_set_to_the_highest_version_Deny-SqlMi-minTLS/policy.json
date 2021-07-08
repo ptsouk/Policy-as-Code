@@ -6,11 +6,7 @@
   "description": "Setting minimal TLS version to 1.2 improves security by ensuring your SQL Managed Instance can only be accessed from clients using TLS 1.2. Using versions of TLS less than 1.2 is not reccomended since they have well documented security vunerabilities.",
   "metadata": {
    "version": "1.0.0",
-   "category": "SQL",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.4295935Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "SQL"
   },
   "parameters": {
    "effect": {

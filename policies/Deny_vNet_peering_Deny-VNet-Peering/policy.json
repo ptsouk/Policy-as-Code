@@ -6,11 +6,7 @@
   "description": "This policy denies the creation of vNet Peerings under the assigned scope.",
   "metadata": {
    "version": "1.0.1",
-   "category": "Network",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.9699094Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Network"
   },
   "parameters": {
    "effect": {

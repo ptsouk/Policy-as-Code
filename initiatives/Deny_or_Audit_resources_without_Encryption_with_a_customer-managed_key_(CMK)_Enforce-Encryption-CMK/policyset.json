@@ -5,11 +5,7 @@
   "description": "Deny or Audit resources without Encryption with a customer-managed key (CMK)",
   "metadata": {
    "version": "1.0.0",
-   "category": "Encryption",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:25.3128367Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Encryption"
   },
   "parameters": {
    "ACRCmkEffect": {

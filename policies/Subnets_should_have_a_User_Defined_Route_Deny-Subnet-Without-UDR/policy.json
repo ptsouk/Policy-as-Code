@@ -5,7 +5,8 @@
   "mode": "All",
   "description": "This policy denies the creation of a subnet with out a User Defined Route.",
   "metadata": {
-   "category": "Network"
+    "version": "1.0.0",
+    "category": "Network"
   },
   "parameters": {
    "effect": {

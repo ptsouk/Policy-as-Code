@@ -6,11 +6,7 @@
   "description": "This policy denies the creation of Maria DB accounts with exposed public endpoints",
   "metadata": {
    "version": "1.0.0",
-   "category": "SQL",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.5530222Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "SQL"
   },
   "parameters": {
    "effect": {

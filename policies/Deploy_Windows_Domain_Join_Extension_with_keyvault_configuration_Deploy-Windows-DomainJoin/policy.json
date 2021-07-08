@@ -6,11 +6,7 @@
   "description": "Deploy Windows Domain Join Extension with keyvault configuration when the extension does not exist on a given windows Virtual Machine",
   "metadata": {
    "version": "1.0.0",
-   "category": "Guest Configuration",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.5776275Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Guest Configuration"
   },
   "parameters": {
    "domainUsername": {

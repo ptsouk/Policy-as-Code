@@ -5,11 +5,7 @@
   "mode": "All",
   "description": "Ensures that subscriptions have Security Centre Standard enabled.",
   "metadata": {
-   "category": "Security Center",
-   "createdBy": "1190845d-145d-4f91-ab69-2bc695a48665",
-   "createdOn": "2020-06-23T12:02:46.4484535Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Security Center"
   },
   "parameters": {
    "emailSecurityContact": {

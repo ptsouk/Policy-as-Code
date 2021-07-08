@@ -6,11 +6,7 @@
   "description": "This policy denies creation of Key Vaults with IP Firewall exposed to all public endpoints",
   "metadata": {
    "version": "1.0.0",
-   "category": "Key Vault",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:23.7400474Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Key Vault"
   },
   "parameters": {
    "effect": {

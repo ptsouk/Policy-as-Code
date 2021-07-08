@@ -5,7 +5,8 @@
   "mode": "All",
   "description": "This policy audits if a Key Vault is provisioned in a not allowed location",
   "metadata": {
-   "category": "Key Vault"
+    "version": "1.0.0",
+    "category": "Key Vault"
   },
   "parameters": {
    "allowedLocation": {

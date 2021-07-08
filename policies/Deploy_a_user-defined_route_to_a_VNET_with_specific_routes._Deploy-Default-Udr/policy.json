@@ -6,11 +6,7 @@
   "description": "Deploy a user-defined route to a VNET with routes from spoke to hub firewall. This policy must be assigned for each region you plan to use.",
   "metadata": {
    "version": "1.0.0",
-   "category": "Network",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.5545692Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Network"
   },
   "parameters": {
    "defaultRoute": {

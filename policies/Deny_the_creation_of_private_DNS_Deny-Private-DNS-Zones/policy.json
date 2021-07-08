@@ -6,11 +6,7 @@
   "description": "This policy denies the creation of a private DNS in the current scope, used in combination with policies that create centralized private DNS in connectivity subscription",
   "metadata": {
    "version": "1.0.0",
-   "category": "Network",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.4696871Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Network"
   },
   "parameters": {
    "effect": {

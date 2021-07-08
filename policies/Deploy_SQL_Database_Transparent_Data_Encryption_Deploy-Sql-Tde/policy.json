@@ -6,11 +6,7 @@
   "description": "Deploy the Transparent Data Encryption when it is not enabled in the deployment",
   "metadata": {
    "version": "1.0.0",
-   "category": "SQL",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.5850584Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "SQL"
   },
   "parameters": {
    "effect": {

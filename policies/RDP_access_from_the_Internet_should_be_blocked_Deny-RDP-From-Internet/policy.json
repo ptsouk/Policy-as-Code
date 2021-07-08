@@ -6,11 +6,7 @@
   "description": "This policy denies any network security rule that allows RDP access from Internet",
   "metadata": {
    "version": "1.0.0",
-   "category": "Network",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-07T08:17:21.5615947Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "category": "Network"
   },
   "parameters": {
    "effect": {
