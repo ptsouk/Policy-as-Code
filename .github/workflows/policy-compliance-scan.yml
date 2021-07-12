@@ -2,6 +2,12 @@ name: policy-compliance-scan
 on:
   schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Executing Compliance Scan'
 jobs:
   assess-policy-compliance:
     runs-on: ubuntu-latest
