@@ -13,6 +13,8 @@ on:
   push:
     paths:
       - .github/workflows/manage-azure-policy.yml      
+      - 'policies/Allowed_locations_e56962a6-4747-49cd-b67b-bf8b01975c4c/**'
+      - 'policies/Allowed_locations_for_resource_groups_e765b5de-1225-4ba3-bd56-1ac6695af988/**'
       - 'policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**'
       - 'policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF/**'
       - 'policies/AppService_append_enable_https_only_setting_to_enforce_https_setting._Append-AppService-httpsonly/**'
@@ -63,6 +65,8 @@ on:
       - 'policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**'
       - 'policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**'
       - 'policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**'
+      - 'policies/Require_a_tag_and_its_value_on_resource_groups_8ce3da23-7156-49e4-b145-24f95f9dcb46/**'
+      - 'policies/Require_a_tag_and_its_value_on_resources_1e30110a-5ceb-460c-a204-c1c3969c6d62/**'
       - 'policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**'
       - 'policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**'
       - 'policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**'
@@ -70,11 +74,6 @@ on:
       - 'policies/Subnets_should_have_a_Network_Security_Group_Deny-Subnet-Without-Nsg/**'
       - 'policies/Subnets_should_have_a_User_Defined_Route_Deny-Subnet-Without-UDR/**'
       - 'policies/Web_Application_should_only_be_accessible_over_HTTPS_Deny-AppServiceWebApp-http/**'
-      - 'initiatives/Deny_or_Audit_resources_without_Encryption_with_a_customer-managed_key_(CMK)_Enforce-Encryption-CMK/**'
-      - 'initiatives/Deny_or_Deploy_and_append_TLS_requirements_and_SSL_enforcement_on_resources_without_Encryption_in_transit_Enforce-EncryptTransit/**'
-      - 'initiatives/Deploy_Azure_Security_Center_configuration_Deploy-ASC-Config/**'
-      - 'initiatives/Deploy_SQL_Database_built-in_SQL_security_configuration_Deploy-Sql-Security/**'
-      - 'initiatives/Public_network_access_should_be_disabled_for_PAAS_services_Deny-PublicEndpoints/**'
 jobs:
   apply-azure-policy:
     runs-on: ubuntu-latest
@@ -90,6 +89,8 @@ jobs:
       uses: azure/manage-azure-policy@v0
       with:
         paths: |
+          policies/Allowed_locations_e56962a6-4747-49cd-b67b-bf8b01975c4c/**
+          policies/Allowed_locations_for_resource_groups_e765b5de-1225-4ba3-bd56-1ac6695af988/**
           policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**
           policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF/**
           policies/AppService_append_enable_https_only_setting_to_enforce_https_setting._Append-AppService-httpsonly/**
@@ -140,6 +141,8 @@ jobs:
           policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**
           policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**
           policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**
+          policies/Require_a_tag_and_its_value_on_resource_groups_8ce3da23-7156-49e4-b145-24f95f9dcb46/**
+          policies/Require_a_tag_and_its_value_on_resources_1e30110a-5ceb-460c-a204-c1c3969c6d62/**
           policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**
           policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**
           policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**
@@ -147,8 +150,3 @@ jobs:
           policies/Subnets_should_have_a_Network_Security_Group_Deny-Subnet-Without-Nsg/**
           policies/Subnets_should_have_a_User_Defined_Route_Deny-Subnet-Without-UDR/**
           policies/Web_Application_should_only_be_accessible_over_HTTPS_Deny-AppServiceWebApp-http/**
-          initiatives/Deny_or_Audit_resources_without_Encryption_with_a_customer-managed_key_(CMK)_Enforce-Encryption-CMK/**
-          initiatives/Deny_or_Deploy_and_append_TLS_requirements_and_SSL_enforcement_on_resources_without_Encryption_in_transit_Enforce-EncryptTransit/**
-          initiatives/Deploy_Azure_Security_Center_configuration_Deploy-ASC-Config/**
-          initiatives/Deploy_SQL_Database_built-in_SQL_security_configuration_Deploy-Sql-Security/**
-          initiatives/Public_network_access_should_be_disabled_for_PAAS_services_Deny-PublicEndpoints/**
