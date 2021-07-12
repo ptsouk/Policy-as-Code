@@ -21,4 +21,4 @@ jobs:
       uses: azure/policy-compliance-scan@v0
       with:
         scopes: |
-          /providers/Microsoft.Management/managementGroups/ES
+          /subscriptions/8194f7dc-68ee-4dff-a67e-b01eec9ed54d
