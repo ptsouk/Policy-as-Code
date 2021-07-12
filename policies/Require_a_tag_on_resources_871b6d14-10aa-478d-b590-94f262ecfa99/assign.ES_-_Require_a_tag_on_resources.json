@@ -1,0 +1,17 @@
+{
+ "properties": {
+  "displayName": "ES - Require a tag on resources",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {
+    "tagName": {
+      "value": "Criticality"
+    }
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/174e2524491a",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "174e2524491a"
+}

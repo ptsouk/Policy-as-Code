@@ -65,8 +65,8 @@ on:
       - 'policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**'
       - 'policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**'
       - 'policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**'
-      - 'policies/Require_a_tag_and_its_value_on_resource_groups_8ce3da23-7156-49e4-b145-24f95f9dcb46/**'
-      - 'policies/Require_a_tag_and_its_value_on_resources_1e30110a-5ceb-460c-a204-c1c3969c6d62/**'
+      - 'policies/Require_a_tag_on_resource_groups_96670d01-0a4d-4649-9c89-2d3abc0a5025/**'
+      - 'policies/Require_a_tag_on_resources_871b6d14-10aa-478d-b590-94f262ecfa99/**'
       - 'policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**'
       - 'policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**'
       - 'policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**'
@@ -141,8 +141,8 @@ jobs:
           policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**
           policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**
           policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**
-          policies/Require_a_tag_and_its_value_on_resource_groups_8ce3da23-7156-49e4-b145-24f95f9dcb46/**
-          policies/Require_a_tag_and_its_value_on_resources_1e30110a-5ceb-460c-a204-c1c3969c6d62/**
+          policies/Require_a_tag_on_resource_groups_96670d01-0a4d-4649-9c89-2d3abc0a5025/**
+          policies/Require_a_tag_on_resources_871b6d14-10aa-478d-b590-94f262ecfa99/**
           policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**
           policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**
           policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**
