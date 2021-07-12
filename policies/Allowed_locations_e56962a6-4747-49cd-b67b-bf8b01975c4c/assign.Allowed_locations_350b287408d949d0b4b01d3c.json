@@ -1,0 +1,34 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Allowed locations",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "parameters": {
+   "listOfAllowedLocations": {
+    "value": [
+     "northeurope",
+     "westeurope"
+    ]
+   }
+  },
+  "metadata": {
+   "assignedBy": "Panagiotis Tsoukias",
+   "parameterScopes": {
+    "listOfAllowedLocations": "/providers/Microsoft.Management/managementGroups/ES"
+   },
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2021-07-12T13:31:30.3415945Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/350b287408d949d0b4b01d3c",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "350b287408d949d0b4b01d3c"
+}
