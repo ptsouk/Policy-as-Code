@@ -1,0 +1,20 @@
+{
+ "properties": {
+  "displayName": "ES - Allowed locations",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "parameters": {
+    "listOfAllowedLocations": {
+     "value": [
+      "northeurope",
+      "westeurope"
+     ]
+    }
+   },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/613680a90e25",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "613680a90e25"
+}
