@@ -1,14 +1,28 @@
 {
  "properties": {
   "displayName": "Network interfaces should not have public IPs",
-  "policyType": "BuiltIn",
+  "policyType": "Custom",
   "mode": "Indexed",
   "description": "This policy denies the network interfaces which are configured with any public IP. Public IP addresses allow internet resources to communicate inbound to Azure resources, and Azure resources to communicate outbound to the internet. This should be reviewed by the network security team.",
   "metadata": {
-   "version": "1.0.0",
+  "version": "1.0.1",
    "category": "Network"
   },
-  "parameters": {},
+  "parameters": {
+    "effect": {
+     "type": "String",
+     "metadata": {
+      "displayName": "Effect",
+      "description": "Enable or disable the execution of the policy"
+     },
+     "allowedValues": [
+      "Audit",
+      "Deny",
+      "Disabled"
+     ],
+     "defaultValue": "Deny"
+    }
+   },
   "policyRule": {
    "if": {
     "allOf": [
@@ -25,11 +39,11 @@
     ]
    },
    "then": {
-    "effect": "deny"
+    "effect": "[parameters('effect')]"
    }
   }
  },
- "id": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-NIC-Public-IP",
  "type": "Microsoft.Authorization/policyDefinitions",
- "name": "83a86a26-fd1f-447c-b59d-e51f44264114"
+ "name": "Deny-NIC-Public-IP"
 }
