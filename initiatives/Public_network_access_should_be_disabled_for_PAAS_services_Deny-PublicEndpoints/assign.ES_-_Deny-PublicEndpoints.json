@@ -24,7 +24,7 @@
       "value": "Audit"
     },
     "StoragePublicIpDenyEffect": {
-      "value": "Audit"
+      "value": "Deny"
     },
     "AKSPublicIpDenyEffect": {
       "value": "Audit"
