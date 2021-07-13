@@ -1,0 +1,34 @@
+name: manage-azure-policy-20471590
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Network_interfaces_should_not_have_public_IPs_83a86a26-fd1f-447c-b59d-e51f44264114/**'
+#      - 'policies/Network_interfaces_should_disable_IP_forwarding_88c0b9da-ce96-4b03-9635-f29a937e2900/**'
+#      - .github/workflows/manage-azure-policy-20471590.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_20471590}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Network_interfaces_should_not_have_public_IPs_83a86a26-fd1f-447c-b59d-e51f44264114/**
+          policies/Network_interfaces_should_disable_IP_forwarding_88c0b9da-ce96-4b03-9635-f29a937e2900/**
