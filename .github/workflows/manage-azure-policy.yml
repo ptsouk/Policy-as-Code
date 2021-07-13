@@ -73,6 +73,7 @@ on:
       - 'policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**'
       - 'policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**'
       - 'policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**'
+      - 'policies/SSH_access_from_the_Internet_should_be_blocked_Deny-SSH-From-Internet/**'
       - 'policies/Storage_Account_set_to_minimum_TLS_and_Secure_transfer_should_be_enabled_Deny-Storage-minTLS/**'
       - 'policies/Subnets_should_have_a_Network_Security_Group_Deny-Subnet-Without-Nsg/**'
       - 'policies/Subnets_should_have_a_User_Defined_Route_Deny-Subnet-Without-UDR/**'
@@ -152,6 +153,7 @@ jobs:
           policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**
           policies/SQL_managed_instances_deploy_a_specific_min_TLS_version_requirement._Deploy-SqlMi-minTLS/**
           policies/SQL_servers_deploys_a_specific_min_TLS_version_requirement._Deploy-SQL-minTLS/**
+          policies/SSH_access_from_the_Internet_should_be_blocked_Deny-SSH-From-Internet/**
           policies/Storage_Account_set_to_minimum_TLS_and_Secure_transfer_should_be_enabled_Deny-Storage-minTLS/**
           policies/Subnets_should_have_a_Network_Security_Group_Deny-Subnet-Without-Nsg/**
           policies/Subnets_should_have_a_User_Defined_Route_Deny-Subnet-Without-UDR/**
