@@ -1,0 +1,17 @@
+{
+ "properties": {
+  "displayName": "ES - RDP access from the Internet should be blocked",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {
+    "effect": {
+      "value": "Deny"
+    }
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/3b4201d6c850",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "3b4201d6c850"
+}

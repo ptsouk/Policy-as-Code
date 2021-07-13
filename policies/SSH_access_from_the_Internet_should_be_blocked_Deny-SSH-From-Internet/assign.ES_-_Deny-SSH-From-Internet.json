@@ -1,0 +1,17 @@
+{
+ "properties": {
+  "displayName": "ES - SSH access from the Internet should be blocked",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-SSH-From-Internet",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {
+    "effect": {
+      "value": "Deny"
+    }
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/07ae87b53d26",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "07ae87b53d26"
+}
