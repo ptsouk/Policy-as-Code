@@ -1,0 +1,12 @@
+{
+ "properties": {
+  "displayName": "ES - Network interfaces should not have public IPs",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/6b08e79cbc8b",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "6b08e79cbc8b"
+}

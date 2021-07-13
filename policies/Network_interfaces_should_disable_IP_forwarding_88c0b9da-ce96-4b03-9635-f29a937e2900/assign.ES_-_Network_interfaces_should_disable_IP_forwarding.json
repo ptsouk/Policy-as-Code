@@ -1,0 +1,12 @@
+{
+ "properties": {
+  "displayName": "ES - Network interfaces should disable IP forwarding",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/88c0b9da-ce96-4b03-9635-f29a937e2900",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/c658e3f9bba4",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "c658e3f9bba4"
+}
