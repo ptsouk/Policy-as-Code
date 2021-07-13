@@ -1,7 +1,7 @@
 {
  "properties": {
   "displayName": "ES - Network interfaces should not have public IPs",
-  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-NIC-Public-IP",
   "scope": "/providers/Microsoft.Management/managementGroups/ES",
   "notScopes": [],
   "Parameters": {
@@ -11,7 +11,7 @@
   },
   "enforcementMode": "Default"
  },
- "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/6b08e79cbc8b",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/1ad3084af826",
  "type": "Microsoft.Authorization/policyAssignments",
- "name": "6b08e79cbc8b"
+ "name": "1ad3084af826"
 }
