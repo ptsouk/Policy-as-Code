@@ -54,6 +54,8 @@ on:
       - 'policies/Function_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceFunctionApp-http/**'
       - 'policies/KeyVault_SoftDelete_should_be_enabled_Append-KV-SoftDelete/**'
       - 'policies/MySQL_database_servers_enforce_SSL_connections._Deny-MySql-http/**'
+      - 'policies/Network_interfaces_should_disable_IP_forwarding_88c0b9da-ce96-4b03-9635-f29a937e2900/**'
+      - 'policies/Network_interfaces_should_not_have_public_IPs_83a86a26-fd1f-447c-b59d-e51f44264114/**'
       - 'policies/No_child_resources_in_Automation_Account_Deny-AA-child-resources/**'
       - 'policies/PostgreSQL_database_servers_enforce_SSL_connection._Deny-PostgreSql-http/**'
       - 'policies/Public_network_access_on_AKS_API_should_be_disabled_Deny-PublicEndpoint-Aks/**'
@@ -130,6 +132,8 @@ jobs:
           policies/Function_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceFunctionApp-http/**
           policies/KeyVault_SoftDelete_should_be_enabled_Append-KV-SoftDelete/**
           policies/MySQL_database_servers_enforce_SSL_connections._Deny-MySql-http/**
+          policies/Network_interfaces_should_disable_IP_forwarding_88c0b9da-ce96-4b03-9635-f29a937e2900/**
+          policies/Network_interfaces_should_not_have_public_IPs_83a86a26-fd1f-447c-b59d-e51f44264114/**
           policies/No_child_resources_in_Automation_Account_Deny-AA-child-resources/**
           policies/PostgreSQL_database_servers_enforce_SSL_connection._Deny-PostgreSql-http/**
           policies/Public_network_access_on_AKS_API_should_be_disabled_Deny-PublicEndpoint-Aks/**
