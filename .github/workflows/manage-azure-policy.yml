@@ -68,6 +68,9 @@ on:
       - 'policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**'
       - 'policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**'
       - 'policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**'
+      - 'policies/Remote_debugging_should_be_turned_off_for_API_Apps_e9c8d085-d9cc-4b17-9cdc-059f1f01f19e/**'
+      - 'policies/Remote_debugging_should_be_turned_off_for_Function_Apps_0e60b895-3786-45da-8377-9c6b4b6ac5f9/**'
+      - 'policies/Remote_debugging_should_be_turned_off_for_Web_Applications_cb510bfd-1cba-4d9f-a230-cb0976f4bb71/**'
       - 'policies/Require_a_tag_on_resource_groups_96670d01-0a4d-4649-9c89-2d3abc0a5025/**'
       - 'policies/Require_a_tag_on_resources_871b6d14-10aa-478d-b590-94f262ecfa99/**'
       - 'policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**'
@@ -148,6 +151,9 @@ jobs:
           policies/Public_network_access_should_be_disabled_for_MySQL_Deny-PublicEndpoint-MySQL/**
           policies/Public_network_access_should_be_disabled_for_PostgreSql_Deny-PublicEndpoint-PostgreSql/**
           policies/RDP_access_from_the_Internet_should_be_blocked_Deny-RDP-From-Internet/**
+          policies/Remote_debugging_should_be_turned_off_for_API_Apps_e9c8d085-d9cc-4b17-9cdc-059f1f01f19e/**
+          policies/Remote_debugging_should_be_turned_off_for_Function_Apps_0e60b895-3786-45da-8377-9c6b4b6ac5f9/**
+          policies/Remote_debugging_should_be_turned_off_for_Web_Applications_cb510bfd-1cba-4d9f-a230-cb0976f4bb71/**
           policies/Require_a_tag_on_resource_groups_96670d01-0a4d-4649-9c89-2d3abc0a5025/**
           policies/Require_a_tag_on_resources_871b6d14-10aa-478d-b590-94f262ecfa99/**
           policies/SQL_Managed_Instance_should_have_the_minimal_TLS_version_set_to_the_highest_version_Deny-SqlMi-minTLS/**
