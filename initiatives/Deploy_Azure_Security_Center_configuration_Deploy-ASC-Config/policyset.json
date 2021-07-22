@@ -284,7 +284,7 @@
       },
       {
        "policyDefinitionReferenceId": "ascExporttoEH",
-       "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-ExportToEH",
+       "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-ExportToEH",
        "parameters": {
         "resourceGroupName": {
          "value": "[parameters('ascExportResourceGroupName')]"
