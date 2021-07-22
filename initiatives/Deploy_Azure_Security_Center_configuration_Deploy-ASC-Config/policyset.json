@@ -283,7 +283,7 @@
        }
       },
       {
-       "policyDefinitionReferenceId": "ascExport",
+       "policyDefinitionReferenceId": "ascExporttoEH",
        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cdfcce10-4578-4ecd-9703-530938e4abcb",
        "parameters": {
         "resourceGroupName": {
