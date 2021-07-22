@@ -577,7 +577,7 @@
    }
   }
  },
- "id": "/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-ExportToEH",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deploy-ASC-ExportToEH",
  "type": "Microsoft.Authorization/policyDefinitions",
  "name": "Deploy-ASC-ExportToEH"
 }
