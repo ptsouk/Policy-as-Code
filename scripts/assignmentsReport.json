@@ -1,0 +1,235 @@
+[
+  {
+    "kind": "Initiative",
+    "PolicyType": "Custom",
+    "DisplayName": "Public network access should be disabled for PAAS services",
+    "referencedPolicies": [
+      {
+        "DisplayName": "Public network access should be disabled for CosmosDB",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access should be disabled for MariaDB",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access should be disabled for MySQL",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access should be disabled for PostgreSql",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access should be disabled for KeyVault",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access on Azure SQL Database should be disabled",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access onStorage accounts should be disabled",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Public network access on AKS API should be disabled",
+        "PolicyType": "Custom"
+      }
+    ]
+  },
+  {
+    "kind": "Initiative",
+    "PolicyType": "Custom",
+    "DisplayName": "Deny or Deploy and append TLS requirements and SSL enforcement on resources without Encryption in transit",
+    "referencedPolicies": [
+      {
+        "DisplayName": "AppService append enable https only setting to enforce https setting.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "AppService append sites with minimum TLS version to enforce.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Latest TLS version should be used in your API App",
+        "PolicyType": "BuiltIn"
+      },
+      {
+        "DisplayName": "Latest TLS version should be used in your Function App",
+        "PolicyType": "BuiltIn"
+      },
+      {
+        "DisplayName": "Latest TLS version should be used in your Web App",
+        "PolicyType": "BuiltIn"
+      },
+      {
+        "DisplayName": "API App should only be accessible over HTTPS",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Function App should only be accessible over HTTPS",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Web Application should only be accessible over HTTPS",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Kubernetes clusters should be accessible only over HTTPS",
+        "PolicyType": "BuiltIn"
+      },
+      {
+        "DisplayName": "Azure Database for MySQL server deploy a specific min TLS version and enforce SSL.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "MySQL database servers enforce SSL connections.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure Database for PostgreSQL server deploy a specific min TLS version requirement and enforce SSL ",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "PostgreSQL database servers enforce SSL connection.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure Cache for Redis Append a specific min TLS version requirement and enforce TLS.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure Cache for Redis Append and the enforcement that enableNonSslPort is disabled.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure Cache for Redis only secure connections should be enabled",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "SQL managed instances deploy a specific min TLS version requirement.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "SQL Managed Instance should have the minimal TLS version set to the highest version",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "SQL servers deploys a specific min TLS version requirement.",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure SQL Database should have the minimal TLS version set to the highest version",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Storage Account set to minimum TLS and Secure transfer should be enabled",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Azure Storage deploy a specific min TLS version requirement and enforce SSL/HTTPS ",
+        "PolicyType": "Custom"
+      }
+    ]
+  },
+  {
+    "kind": "Initiative",
+    "PolicyType": "Custom",
+    "DisplayName": "Deploy Azure Security Center configuration",
+    "referencedPolicies": [
+      {
+        "DisplayName": "Deploy Azure Defender for Virtual Machines",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for Azure Sql Databases",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for Azure App Services",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for Storage Accounts",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for Sql on Virtual Machines",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for AKS",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for ACR",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for AKV",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for DNS",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Defender for ARM",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy Azure Security Center Security Contacts",
+        "PolicyType": "Custom"
+      },
+      {
+        "DisplayName": "Deploy export to Log Analytics workspace for Azure Security Center data",
+        "PolicyType": "BuiltIn"
+      },
+      {
+        "DisplayName": "Deploy export to Event Hub for Azure Security Center data",
+        "PolicyType": "Custom"
+      }
+    ]
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "SSH access from the Internet should be blocked"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "Network interfaces should not have public IPs"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "Subnets should have a Network Security Group"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "RDP access from the Internet should be blocked"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "Network interfaces should disable IP forwarding"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "Azure Storage deploy a specific min TLS version requirement and enforce SSL/HTTPS "
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "Key vaults should have purge protection enabled"
+  },
+  {
+    "kind": "Policy",
+    "PolicyType": "Custom",
+    "DisplayName": "KeyVault SoftDelete should be enabled"
+  }
+]
