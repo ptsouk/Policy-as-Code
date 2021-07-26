@@ -33,4 +33,5 @@ jobs:
           policies/**
           initiatives/**
         assignments:  |
-          assign.ES*.json
+          assign.ES_-_Configure_SynapseWorkspace_Audit_Storage.json
+#          assign.ES*.json
