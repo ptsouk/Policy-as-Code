@@ -1,16 +1,10 @@
 {
- "sku": {
-  "name": "A0",
-  "tier": "Free"
- },
  "identity": {
-  "principalId": "825fe53d-8c8e-4ff1-9104-151bd2d0e328",
-  "tenantId": "a6e09f1d-1f05-497b-b499-da099ced752f",
   "type": "SystemAssigned"
  },
  "properties": {
-  "displayName": "Custom - Configure Synapse workspaces to have auditing enabled",
-  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/0446211e-3b99-422b-ba61-9dc6b8b3bb59",
+  "displayName": "ES - Configure Synapse workspaces to have auditing enabled",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Configure_SynapseWorkspace_Audit_Storage",
   "scope": "/providers/Microsoft.Management/managementGroups/ES",
   "notScopes": [],
   "parameters": {
@@ -19,19 +13,14 @@
    }
   },
   "metadata": {
-   "assignedBy": "Panagiotis Tsoukias",
    "parameterScopes": {
     "storageAccountsResourceGroup": "/subscriptions/8194f7dc-68ee-4dff-a67e-b01eec9ed54d"
-   },
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-26T08:44:55.5424856Z",
-   "updatedBy": null,
-   "updatedOn": null
+   }
   },
   "enforcementMode": "Default"
  },
- "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/b52b22cdeb384fb3aef6f3f2",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/99f5b094bba2",
  "type": "Microsoft.Authorization/policyAssignments",
- "name": "b52b22cdeb384fb3aef6f3f2",
+ "name": "99f5b094bba2",
  "location": "westeurope"
 }

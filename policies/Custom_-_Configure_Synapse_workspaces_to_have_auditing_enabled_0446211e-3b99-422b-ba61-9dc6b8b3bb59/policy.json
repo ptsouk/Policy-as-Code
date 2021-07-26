@@ -5,11 +5,7 @@
   "mode": "Indexed",
   "description": "To ensure the operations performed against your SQL assets are captured, Synapse workspaces should have auditing enabled. This is sometimes required for compliance with regulatory standards.",
   "metadata": {
-   "category": "Synapse",
-   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "createdOn": "2021-07-26T08:43:41.5468538Z",
-   "updatedBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
-   "updatedOn": "2021-07-26T09:45:19.099756Z"
+   "category": "Synapse"
   },
   "parameters": {
    "effect": {
@@ -183,7 +179,7 @@
    }
   }
  },
- "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/0446211e-3b99-422b-ba61-9dc6b8b3bb59",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Configure_SynapseWorkspace_Audit_Storage",
  "type": "Microsoft.Authorization/policyDefinitions",
- "name": "0446211e-3b99-422b-ba61-9dc6b8b3bb59"
+ "name": "Configure_SynapseWorkspace_Audit_Storage"
 }
