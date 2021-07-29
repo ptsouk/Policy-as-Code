@@ -1,17 +1,20 @@
 {
  "properties": {
   "displayName": "ES - Require a tag on resources",
-  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Require_a_tag_on_resources",
   "scope": "/providers/Microsoft.Management/managementGroups/ES",
   "notScopes": [],
   "Parameters": {
     "tagName": {
       "value": "Criticality"
+    },
+    "effect": {
+      "value": "Deny"
     }
   },
   "enforcementMode": "Default"
  },
- "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/174e2524491a",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/4ba0006d66be",
  "type": "Microsoft.Authorization/policyAssignments",
- "name": "174e2524491a"
+ "name": "4ba0006d66be"
 }
