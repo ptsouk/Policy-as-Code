@@ -33,5 +33,5 @@ jobs:
           policies/**
           initiatives/**
         assignments:  |
-          assign.ES_-_Require_a_tag_on_resources
+          assign.ES_-_Require_a_tag_on_resources.json
 #          assign.ES*.json
