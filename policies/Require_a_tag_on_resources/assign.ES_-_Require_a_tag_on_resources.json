@@ -1,7 +1,7 @@
 {
  "properties": {
   "displayName": "ES - Require a tag on resources",
-  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Require_a_tag_on_resources",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Require_a_tag_on_resources",
   "scope": "/providers/Microsoft.Management/managementGroups/ES",
   "notScopes": [],
   "Parameters": {

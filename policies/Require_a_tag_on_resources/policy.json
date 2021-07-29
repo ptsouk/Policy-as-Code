@@ -48,7 +48,7 @@
     }
    }
  },
- "id": "/providers/Microsoft.Authorization/policyDefinitions/Require_a_tag_on_resources",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Require_a_tag_on_resources",
  "type": "Microsoft.Authorization/policyDefinitions",
  "name": "Require_a_tag_on_resources"
 }
