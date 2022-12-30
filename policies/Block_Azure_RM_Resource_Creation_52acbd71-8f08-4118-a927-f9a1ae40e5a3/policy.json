@@ -1,0 +1,80 @@
+{
+ "properties": {
+  "displayName": "Block Azure RM Resource Creation",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Classic resources lack Role Based Access Control (RBAC) and other security features that are available in Azure Resource Manager (ARM) model.",
+  "metadata": {
+   "createdBy": "6a32a3bb-ff55-4762-96d4-dae8a5acb05b",
+   "createdOn": "2022-11-29T11:52:00.4649985Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "ringValue": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "ringValue",
+     "description": "The list of tags that can be specified when deploying resources."
+    },
+    "allowedValues": [
+     "r0",
+     "r1",
+     "r2",
+     "r3"
+    ],
+    "defaultValue": [
+     "r0"
+    ]
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "value": "[resourceGroup().tags['ringValue']]",
+      "in": "[parameters('ringValue')]"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicCompute/virtualMachines"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicCompute/domainNames"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicStorage/storageAccounts"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicNetwork/virtualNetworks"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicNetwork/reservedIps"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.ClassicNetwork/networkSecurityGroups"
+       },
+       {
+        "field": "type",
+        "equals": "Microsoft.MarketplaceApps/classicDevServices"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/52acbd71-8f08-4118-a927-f9a1ae40e5a3",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "52acbd71-8f08-4118-a927-f9a1ae40e5a3"
+}

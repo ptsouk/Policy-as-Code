@@ -1,0 +1,41 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "0de28fc5-0a1f-49f0-b196-a32a5d8d8b6f",
+  "tenantId": "a6e09f1d-1f05-497b-b499-da099ced752f",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Configure Azure Activity logs to stream to specified Log Analytics workspace with Archive",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/2972dccf-6337-4908-b084-c9aa3059438a",
+  "scope": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f",
+  "notScopes": [],
+  "parameters": {
+   "logAnalytics": {
+    "value": "/subscriptions/870108ec-6747-428d-9627-c2f9db260b7f/resourcegroups/azmon-rg/providers/microsoft.operationalinsights/workspaces/azmonactivity-law"
+   },
+   "storageAccount": {
+    "value": "/subscriptions/870108ec-6747-428d-9627-c2f9db260b7f/resourcegroups/azmon-rg/providers/microsoft.storage/storageaccounts/azmonactivitystapanoslab"
+   }
+  },
+  "metadata": {
+   "assignedBy": "Panagiotis Tsoukias",
+   "parameterScopes": {
+    "logAnalytics": "/subscriptions/870108ec-6747-428d-9627-c2f9db260b7f/resourcegroups/azmon-rg",
+    "storageAccount": "/subscriptions/870108ec-6747-428d-9627-c2f9db260b7f/resourcegroups/azmon-rg"
+   },
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2022-11-29T12:41:18.4456027Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyAssignments/7751b553398f41febd64890b",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "7751b553398f41febd64890b",
+ "location": "westeurope"
+}

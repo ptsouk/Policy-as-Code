@@ -1,0 +1,56 @@
+{
+ "properties": {
+  "displayName": "Hybrid worker - Add system-assigned managed identity on virtual machines with no identities",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "This policy adds a system-assigned managed identity to virtual machines hosted in Azure.",
+  "metadata": {
+   "category": "Automation",
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2022-05-11T18:17:14.2437316Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/virtualMachines"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "identity.type",
+        "exists": "false"
+       },
+       {
+        "field": "identity.type",
+        "equals": "None"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+     ],
+     "operations": [
+      {
+       "operation": "addOrReplace",
+       "field": "identity.type",
+       "value": "SystemAssigned"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/5dc215e7-c844-416d-96c5-c186c5b52add",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "5dc215e7-c844-416d-96c5-c186c5b52add"
+}

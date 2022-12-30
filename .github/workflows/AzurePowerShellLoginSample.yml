@@ -1,0 +1,29 @@
+name: AzurePowerShellLoginSample
+on:
+  workflow_dispatch:
+  
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.POLICY_COMPLIANCE_SCAN}}
+        allow-no-subscriptions: true
+        enable-AzPSSession: true
+
+    - name: Az PowerShell
+      uses: azure/powershell@v1
+      with:
+        azPSVersion: "latest"
+        inlineScript: |
+          if(-not (Get-Module Az.ResourceGraph -ListAvailable))
+          {
+            Install-Module Az.ResourceGraph -Scope CurrentUser -Force
+          }
+          $query = "resourcecontainers | where type == 'microsoft.resources/subscriptions' | project name, id | sort by name asc"
+          $subscriptions = Search-AzGraph -Query $query -UseTenantScope
+          $subscriptions

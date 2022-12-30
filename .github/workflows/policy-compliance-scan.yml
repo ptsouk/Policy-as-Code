@@ -1,0 +1,215 @@
+name: policy-compliance-scan
+on:
+  #schedule:
+    #- cron:  '0 8 * * *'  # runs every morning 8am
+    #- cron: '5 4 * * 1' # runs at 04:05 on Monday.
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Executing Compliance Scan'
+      ManagementGroup:
+        description: 'The Management Group to run compliance scan'
+        required: true
+        default: 'a6e09f1d-1f05-497b-b499-da099ced752f'
+      ReportName:
+        description: 'The name of the report artifact'
+        required: true
+        default: 'my_report'
+jobs:
+  assess-policy-compliance:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.POLICY_COMPLIANCE_SCAN}}
+        allow-no-subscriptions: true
+        enable-AzPSSession: true
+
+    - name: Get Subscription Scopes
+      uses: azure/powershell@v1
+      with:
+        azPSVersion: "latest"
+        inlineScript: |
+          Get-AzContext
+          if(-not (Get-Module Az.ResourceGraph -ListAvailable))
+          {
+            Install-Module Az.ResourceGraph -Scope CurrentUser -Force
+          }
+          $query = "resourcecontainers | where type == 'microsoft.resources/subscriptions' | mv-expand managementGroupParent = properties.managementGroupAncestorsChain | where managementGroupParent.name =~ '${{github.event.inputs.ManagementGroup}}' | project name, id | sort by name asc"
+          $subscriptions = Search-AzGraph -Query $query -UseTenantScope
+          
+          $output = $null
+          foreach($subscription in $subscriptions)
+          {
+            $output += $subscription.id + "`n"
+          }
+          $output = $output + "EOF"
+          $output
+          echo "scopes<<EOF" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+          echo $output | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: | 
+          ${{ env.scopes }}
+        report-name: '${{github.event.inputs.ReportName}}'
+
+  format-report:
+    needs: assess-policy-compliance
+    #if: ${{ always() && contains(join(needs.*.result, ','), 'failure') }}
+    if: ${{ always() && needs.assess-policy-compliance.result == 'failure'}}
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: '${{github.event.inputs.ReportName}}.csv'
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.POLICY_COMPLIANCE_SCAN}}
+        allow-no-subscriptions: true
+        enable-AzPSSession: true
+
+    - name: Get Report Values
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzContext
+          $reportName = "${{github.event.inputs.ReportName}}"          
+          $entries = Import-Csv -Path "./$reportName.csv"
+          $report = @()
+          # get all unique subscriptions
+          $subscriptionIds = $entries.Resource_ID | ForEach-Object {($_ -split("/"))[2]} | Sort-Object -Unique
+          $subscriptions = @()
+          foreach ($subscriptionId in $subscriptionIds)
+          {
+              $properties = [ordered]@{
+                  subscriptionName = Get-AzSubscription -TenantId (Get-AzContext).Tenant -SubscriptionId $subscriptionId | Select-Object -ExpandProperty Name
+                  SubscriptionId = $subscriptionId
+              }
+              $subscriptions += [pscustomobject]$properties
+          }
+          # get all unique assignments
+          $assignmentIds = $entries.POLICY_ASSG_ID | Sort-Object -Unique
+          $assignments = @()
+          foreach ($assignmentId in $assignmentIds)
+          {
+              $properties = [ordered]@{
+                  assignmentName = (Get-AzPolicyAssignment -Id $assignmentId -WarningAction SilentlyContinue).Properties.DisplayName
+                  assignmentId = $assignmentId
+              }
+              $assignments += [pscustomobject]$properties
+          }
+          # get all unique policies
+          $policyIds = $entries.POLICY_DEF_ID | Sort-Object -Unique
+          $policies = @()
+          foreach ($policyId in $policyIds)
+          {
+              $properties = [ordered]@{
+                  policyName = (Get-AzPolicyDefinition -Id $policyId -WarningAction SilentlyContinue).Properties.DisplayName
+                  policyId = $policyId
+              }
+              $policies += [pscustomobject]$properties
+          }
+          # get all unique initiatives
+          $initiativeIds = $entries.INITIATIVE_ID | Sort-Object -Unique
+          $initiatives = @()
+          foreach ($initiativeId in $initiativeIds)
+          {
+              if ($initiativeId)
+              {
+                  $properties = [ordered]@{
+                      initiativeName = (Get-AzPolicySetDefinition -Id $initiativeId -WarningAction SilentlyContinue).Properties.DisplayName
+                      initiativeId = $initiativeId
+                  }
+                  $initiatives += [pscustomobject]$properties
+              }
+              else
+              {
+                  $properties = [ordered]@{
+                      initiativeName = "N/A"
+                      initiativeId = $null
+                  }
+                  $initiatives += [pscustomobject]$properties
+              }
+          }
+
+          foreach ($entry in $entries)
+          {
+              $data = $entry.RESOURCE_ID -split ("/")
+              $subscription = $subscriptions | Where-Object {$_.SubscriptionId -eq $data[2]} | Select-Object -ExpandProperty subscriptionName
+              if($entry.RESOURCE_LOCATION)
+              {
+                  $resourceGroup = $data[4]
+              }
+              else 
+              {
+                  $resourceGroup = "N/A"
+              }
+              $resourceName = $data[-1]
+              $assignmentName = $assignments | Where-Object {$_.assignmentId -eq $entry.POLICY_ASSG_ID} | Select-Object -ExpandProperty assignmentName
+              $policyName = $policies | Where-Object {$_.policyId -eq $entry.POLICY_DEF_ID} | Select-Object -ExpandProperty policyName
+              $initiativeName = $initiatives | Where-Object {$_.initiativeId -eq $entry.INITIATIVE_ID} | Select-Object -ExpandProperty initiativeName
+
+              $properties = [ordered]@{
+                  'Subscription Name' = $subscription
+                  'Resource Group' = $resourceGroup
+                  'Resource Type' = $entry.RESOURCE_TYPE
+                  'Resource Name' = $resourceName
+                  'Resource Location' = $entry.RESOURCE_LOCATION
+                  'Assignment Name' = $assignmentName
+                  'Policy Name' = $policyName
+                  'Initiative Name' = $initiativeName
+                  'Compliance State' = $entry.COMPLIANCE_STATE
+              }
+              $report += [pscustomobject]$properties      
+          }
+
+          # workaround for reporting on non-compliant subscriptions
+          
+          if(-not (Get-Module Az.ResourceGraph -ListAvailable))
+          {
+            Install-Module Az.ResourceGraph -Scope CurrentUser -Force
+          }
+          $query = "resourcecontainers | where type == 'microsoft.resources/subscriptions' | mv-expand managementGroupParent = properties.managementGroupAncestorsChain | where managementGroupParent.name =~ '${{github.event.inputs.ManagementGroup}}' | project name, id | sort by name asc"
+          $subs = Search-AzGraph -Query $query -UseTenantScope
+          foreach ($sub in $subs)
+          {
+              $subId = $sub.id.Split("/")[-1]
+              $subscriptionStates = Get-AzPolicyState -SubscriptionId $subId `
+                  | Where-Object {$_.IsCompliant -eq $False -and $_.ResourceType -eq "Microsoft.Resources/subscriptions"}
+              if ($subscriptionStates)    
+              {
+                  foreach ($subscriptionState in $subscriptionStates)
+                  {
+                      $properties = [ordered]@{
+                          'Subscription Name' = Get-AzSubscription -TenantId (Get-AzContext).Tenant -SubscriptionId $subId | Select-Object -ExpandProperty Name
+                          'Resource Group' = $null
+                          'Resource Type' = "Microsoft.Resources/subscriptions"
+                          'Resource Name' = Get-AzSubscription -TenantId (Get-AzContext).Tenant -SubscriptionId $subId | Select-Object -ExpandProperty Name
+                          'Resource Location' = $null
+                          'Assignment Name' = (Get-AzPolicyAssignment -Id $subscriptionState.PolicyAssignmentId -WarningAction SilentlyContinue).Properties.DisplayName
+                          'Policy Name' = (Get-AzPolicyDefinition -Id $subscriptionState.PolicyDefinitionId).Properties.DisplayName
+                          'Initiative Name' = (Get-AzPolicySetDefinition -Id $subscriptionState.PolicySetDefinitionId).Properties.DisplayName
+                          'Compliance State' = $subscriptionState.ComplianceState
+                      }
+                      $report += [pscustomobject]$properties
+                  }
+              }
+          }
+          
+          $report | Export-Csv -Path "./$($reportName)_formatted.csv" 
+        azPSVersion: "latest"
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: '${{github.event.inputs.ReportName}}_formatted.csv'
+        path: ./${{github.event.inputs.ReportName}}_formatted.csv

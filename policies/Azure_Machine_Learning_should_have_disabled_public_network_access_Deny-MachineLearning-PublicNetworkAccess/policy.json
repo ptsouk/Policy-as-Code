@@ -1,0 +1,55 @@
+{
+ "properties": {
+  "displayName": "Azure Machine Learning should have disabled public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Denies public network access for Azure Machine Learning workspaces.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Machine Learning",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:22.8367069Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:07.4600237Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Disabled",
+     "Deny"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.MachineLearningServices/workspaces"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-MachineLearning-PublicNetworkAccess",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-MachineLearning-PublicNetworkAccess"
+}

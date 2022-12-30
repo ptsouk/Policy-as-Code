@@ -1,0 +1,38 @@
+{
+ "properties": {
+  "displayName": "ES - Public network access should be disabled for PAAS services",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policySetDefinitions/Deny-PublicEndpoints",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {
+    "CosmosPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "MariaDBPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "MySQLPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "PostgreSQLPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "KeyVaultPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "SqlServerPublicIpDenyEffect": {
+      "value": "Audit"
+    },
+    "StoragePublicIpDenyEffect": {
+      "value": "Deny"
+    },
+    "AKSPublicIpDenyEffect": {
+      "value": "Audit"
+    }
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/86018135d5c4",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "86018135d5c4"
+}

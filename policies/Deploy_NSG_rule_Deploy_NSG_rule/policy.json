@@ -1,0 +1,283 @@
+{
+ "properties": {
+  "displayName": "Deploy NSG rule",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy deploys a security rule to an NSG.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Network",
+   "gitHubPolicy": {
+    "digest": "cb6e8d3aa4704243dcc602217275534e09f1e619",
+    "repoName": "ptsouk/Policy-as-Code",
+    "commitSha": "fd86197842eb3c69c795ebdec1a3084a49bfd783",
+    "runUrl": "https://github.com/ptsouk/Policy-as-Code/actions/runs/3512458308",
+    "filepath": "policies/Deploy_NSG_rule_2"
+   },
+   "createdBy": "28b682d8-8986-446c-857c-39d70cf016ac",
+   "createdOn": "2022-11-21T07:52:24.8783065Z",
+   "updatedBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "updatedOn": "2022-12-05T15:53:16.5051485Z"
+  },
+  "parameters": {
+   "access": {
+    "type": "String",
+    "metadata": {
+     "displayName": "access",
+     "description": "The network traffic is allowed or denied. - Allow or Deny"
+    },
+    "defaultValue": "Deny"
+   },
+   "destinationAddressPrefix": {
+    "type": "String",
+    "metadata": {
+     "displayName": "destinationAddressPrefix",
+     "description": "The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used."
+    },
+    "defaultValue": "10.241.18.96/28"
+   },
+   "destinationPortRange": {
+    "type": "String",
+    "metadata": {
+     "displayName": "destinationPortRange",
+     "description": "The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports."
+    },
+    "defaultValue": "*"
+   },
+   "direction": {
+    "type": "String",
+    "metadata": {
+     "displayName": "direction",
+     "description": "The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. - Inbound or Outbound"
+    },
+    "defaultValue": "Inbound"
+   },
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "The effect determines what happens when the policy rule is evaluated to match"
+    },
+    "allowedValues": [
+     "deployIfNotExists",
+     "auditIfNotExists"
+    ],
+    "defaultValue": "deployIfNotExists"
+   },
+   "priority": {
+    "type": "Integer",
+    "metadata": {
+     "displayName": "priority",
+     "description": "The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule."
+    },
+    "defaultValue": 4096
+   },
+   "protocol": {
+    "type": "String",
+    "metadata": {
+     "displayName": "protocol",
+     "description": "Network protocol this rule applies to. - Tcp, Udp, Icmp, Esp, *, Ah"
+    },
+    "defaultValue": "*"
+   },
+   "ruledescription": {
+    "type": "String",
+    "metadata": {
+     "displayName": "description",
+     "description": "The description of the rule."
+    },
+    "defaultValue": "This is a Test 1"
+   },
+   "rulename": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Rule Name",
+     "description": "This is the name of the security rule itself."
+    },
+    "defaultValue": "DefaultRule01"
+   },
+   "sourceAddressPrefix": {
+    "type": "String",
+    "metadata": {
+     "displayName": "sourceAddressPrefix",
+     "description": "The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from."
+    },
+    "defaultValue": "10.0.0.0/8"
+   },
+   "sourcePortRange": {
+    "type": "String",
+    "metadata": {
+     "displayName": "sourcePortRange",
+     "description": "The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports."
+    },
+    "defaultValue": "*"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "equals": "Microsoft.Network/networkSecurityGroups",
+    "field": "type"
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+     "name": "[field('name')]",
+     "type": "Microsoft.Network/networkSecurityGroups",
+     "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+     ],
+     "existenceCondition": {
+      "count": {
+       "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+       "where": {
+        "allOf": [
+         {
+          "equals": "[parameters('rulename')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].name"
+         },
+         {
+          "equals": "[parameters('protocol')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].protocol"
+         },
+         {
+          "equals": "[parameters('access')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access"
+         },
+         {
+          "equals": "[parameters('priority')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority"
+         },
+         {
+          "equals": "[parameters('direction')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction"
+         },
+         {
+          "equals": "[parameters('sourcePortRange')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].sourcePortRange"
+         },
+         {
+          "equals": "[parameters('destinationPortRange')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange"
+         },
+         {
+          "equals": "[parameters('sourceAddressPrefix')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].sourceAddressPrefix"
+         },
+         {
+          "equals": "[parameters('destinationAddressPrefix')]",
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationAddressPrefix"
+         }
+        ]
+       }
+      },
+      "notEquals": 0
+     },
+     "deployment": {
+      "properties": {
+       "mode": "incremental",
+       "parameters": {
+        "access": {
+         "value": "[parameters('access')]"
+        },
+        "description": {
+         "value": "[parameters('ruledescription')]"
+        },
+        "destinationAddressPrefix": {
+         "value": "[parameters('destinationAddressPrefix')]"
+        },
+        "destinationPortRange": {
+         "value": "[parameters('destinationPortRange')]"
+        },
+        "direction": {
+         "value": "[parameters('direction')]"
+        },
+        "networkSecurityGroupName": {
+         "value": "[field('name')]"
+        },
+        "priority": {
+         "value": "[parameters('priority')]"
+        },
+        "protocol": {
+         "value": "[parameters('protocol')]"
+        },
+        "rulename": {
+         "value": "[parameters('rulename')]"
+        },
+        "sourceAddressPrefix": {
+         "value": "[parameters('sourceAddressPrefix')]"
+        },
+        "sourcePortRange": {
+         "value": "[parameters('sourcePortRange')]"
+        }
+       },
+       "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+         "access": {
+          "type": "String"
+         },
+         "description": {
+          "type": "String"
+         },
+         "destinationAddressPrefix": {
+          "type": "String"
+         },
+         "destinationPortRange": {
+          "type": "String"
+         },
+         "direction": {
+          "type": "String"
+         },
+         "networkSecurityGroupName": {
+          "type": "string"
+         },
+         "priority": {
+          "type": "int"
+         },
+         "protocol": {
+          "type": "String"
+         },
+         "rulename": {
+          "type": "String"
+         },
+         "sourceAddressPrefix": {
+          "type": "String"
+         },
+         "sourcePortRange": {
+          "type": "String"
+         }
+        },
+        "resources": [
+         {
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+          "apiVersion": "2022-05-01",
+          "name": "[concat(parameters('networkSecurityGroupName'),'/',parameters('rulename'))]",
+          "properties": {
+           "access": "[parameters('access')]",
+           "description": "[parameters('description')]",
+           "destinationAddressPrefix": "[parameters('destinationAddressPrefix')]",
+           "destinationAddressPrefixes": "[json('null')]",
+           "destinationPortRange": "[parameters('destinationPortRange')]",
+           "destinationPortRanges": "[json('null')]",
+           "direction": "[parameters('direction')]",
+           "priority": "[parameters('priority')]",
+           "protocol": "[parameters('protocol')]",
+           "sourceAddressPrefix": "[parameters('sourceAddressPrefix')]",
+           "sourceAddressPrefixes": "[json('null')]",
+           "sourcePortRange": "[parameters('sourcePortRange')]",
+           "sourcePortRanges": "[json('null')]"
+          }
+         }
+        ]
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/Deploy_NSG_rule",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deploy_NSG_rule"
+}

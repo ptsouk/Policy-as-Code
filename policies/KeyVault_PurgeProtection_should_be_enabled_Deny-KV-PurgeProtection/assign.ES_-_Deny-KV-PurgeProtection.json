@@ -1,0 +1,17 @@
+{
+  "properties": {
+   "displayName": "ES - Key vaults should have purge protection enabled",
+   "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-KV-PurgeProtection",
+   "scope": "/providers/Microsoft.Management/managementGroups/ES",
+   "notScopes": [],
+   "Parameters": {
+     "effect": {
+       "value": "Deny"
+     }
+   },
+   "enforcementMode": "Default"
+  },
+  "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/a38f0a6dd473",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "name": "a38f0a6dd473"
+ }

@@ -1,0 +1,579 @@
+{
+ "properties": {
+  "displayName": "Custom - Enable Defender for Cloud plans",
+  "policyType": "Custom",
+  "description": "",
+  "metadata": {
+   "category": "Security Center",
+   "version": "1.0.0",
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2022-10-05T13:24:57.6218595Z",
+   "updatedBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "updatedOn": "2022-11-01T13:31:38.3781652Z",
+   "parameterScopes": {
+    "logAnalyticsWorkspaceResourceId : Configure Azure Kubernetes Service clusters to enable Defender profile_1": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f",
+    "logAnalyticsWorkspaceResourceId : [Preview]: Configure Azure Arc enabled Kubernetes clusters to install Microsoft Defender for Cloud e_1": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f"
+   }
+  },
+  "parameters": {
+   "KeyVaults_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for Key Vaults effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "DNS_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for DNS effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "open-source_relational_databases_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for open-source relational databases effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "SQL_servers_on_machines_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for SQL servers on machines effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "storage_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for Storage effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "servers_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for servers effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "App_Service_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for App Service effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "Resource_Manager_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for Resource Manager effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "Azure_SQL_database_ effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for Azure SQL database effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "SQL_managed_instances_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Azure Defender for SQL managed instances effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "VA_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure machines to receive a vulnerability assessment provider effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "VA_Type": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Vulnerability Assessment Provider Type",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "default",
+     "mdeTvm"
+    ],
+    "defaultValue": "default"
+   },
+   "Containers_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Configure Microsoft Defender for Containers effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "PostgreSQL_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "PostgreSQL servers effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "MySQL_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "MySQL servers effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "MariaDB_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "MariaDB servers effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "CosmosDB_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Cosmos DB effect",
+     "description": null,
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "AKS_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS effect",
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "AKS_LogAnalyticsWorkspaceResourceId": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS Log Analytics Workspace ResourceId",
+     "portalReview": true
+    },
+    "defaultValue": "\"\""
+   },
+   "AKS_Arc_effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS Arc effect",
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "AKS_Arc_LogAnalyticsWorkspaceResourceId": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS Arc Log Analytics Workspace ResourceId",
+     "portalReview": true
+    },
+    "defaultValue": "\"\""
+   },
+   "AKS_Policy_addon_Effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS Policy add-on Effect",
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "AKS_Arc_Policy_addon_Effect": {
+    "type": "string",
+    "metadata": {
+     "displayName": "AKS Arc Policy add-on Effect",
+     "portalReview": true
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "AKS_Arc_ExcludedDistributions": {
+    "type": "array",
+    "metadata": {
+     "displayName": "AKS Arc Excluded Distributions",
+     "description": "Distributions to be excluded from the policy",
+     "portalReview": true
+    },
+    "defaultValue": [
+     "aks",
+     "aks_management",
+     "eks",
+     "gke"
+    ]
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Key Vaults to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f725891-01c0-420a-9059-4fa46cb770b7",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('KeyVaults_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for DNS to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2370a3c1-4a25-4283-a91a-c9c1a145fb2f",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('DNS_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender to be enabled on SQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36d49e87-48c4-4f2e-beed-ba4ed02b71f5",
+    "parameters": {},
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for open-source relational databases to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/44433aa3-7ec2-4002-93ea-65c65ff0310a",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('open-source_relational_databases_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for SQL servers on machines to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/50ea7265-7d8c-429e-9a7d-ca1f410191c3",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('SQL_servers_on_machines_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Storage to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/74c30959-af11-47b3-9ed2-a26e03f427a3",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('storage_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for servers to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8e86a5b6-b9bd-49d1-8e21-4bb8a0862222",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('servers_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for App Service to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b40e7bcd-a1e5-47fe-b9cf-2f534d0bfb7d",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('App_Service_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Resource Manager to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b7021b2b-08fd-4dc0-9de7-3c6ece09faf9",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('Resource_Manager_effect')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Azure SQL database to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b99b73e7-074b-4089-9395-b7236f094491",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('Azure_SQL_database_ effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender to be enabled on SQL managed instances_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c5a62eb0-c65a-4220-8a4d-f70dd4ca95dd",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('SQL_managed_instances_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure machines to receive a vulnerability assessment provider_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/13ce0167-8ca6-4048-8e6b-f996402e3c1b",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('VA_effect')]"
+     },
+     "vaType": {
+      "value": "[parameters('VA_Type')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Microsoft Defender for Containers to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c9ddb292-b203-4738-aead-18e2716e858f",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('Containers_effect')]"
+     }
+    },
+    "groupNames": [
+     "Containers"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Advanced Threat Protection to be enabled on Azure database for PostgreSQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/db048e65-913c-49f9-bb5f-1084184671d3",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('PostgreSQL_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Advanced Threat Protection to be enabled on Azure database for MySQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/80ed5239-4122-41ed-b54a-6f1fa7552816",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('MySQL_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Advanced Threat Protection to be enabled on Azure database for MariaDB servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6cf7411-da9e-49e2-aec0-cba0250eaf8c",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('MariaDB_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Microsoft Defender for Azure Cosmos DB to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82bf5b87-728b-4a74-ba4d-6123845cf542",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('CosmosDB_effect')]"
+     }
+    },
+    "groupNames": [
+     "Databases"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Kubernetes Service clusters to enable Defender profile_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/64def556-fbad-4622-930e-72d1d5589bf5",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('AKS_effect')]"
+     },
+     "logAnalyticsWorkspaceResourceId": {
+      "value": "[parameters('AKS_LogAnalyticsWorkspaceResourceId')]"
+     }
+    },
+    "groupNames": [
+     "Containers"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Configure Azure Arc enabled Kubernetes clusters to install Microsoft Defender for Cloud e_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/708b60a6-d253-4fe0-9114-4be4c00f012c",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('AKS_Arc_effect')]"
+     },
+     "logAnalyticsWorkspaceResourceId": {
+      "value": "[parameters('AKS_Arc_LogAnalyticsWorkspaceResourceId')]"
+     },
+     "excludedDistributions": {
+      "value": "[parameters('AKS_Arc_ExcludedDistributions')]"
+     }
+    },
+    "groupNames": [
+     "Containers"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8eff44f-8c92-45c3-a3fb-9880802d67a7",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('AKS_Policy_addon_Effect')]"
+     }
+    },
+    "groupNames": [
+     "Containers"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Configure Azure Arc enabled Kubernetes clusters to install the Azure Policy extension_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0adc5395-9169-4b9b-8687-af838d69410a",
+    "parameters": {
+     "effect": {
+      "value": "[parameters('AKS_Arc_Policy_addon_Effect')]"
+     }
+    },
+    "groupNames": [
+     "Containers"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "Databases",
+    "displayName": "Databases"
+   },
+   {
+    "name": "Containers",
+    "displayName": "Containers"
+   }
+  ]
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policySetDefinitions/cf127a2362964e0eac0dbd6a",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "cf127a2362964e0eac0dbd6a"
+}

@@ -1,0 +1,62 @@
+{
+ "properties": {
+  "displayName": "AppService append enable https only setting to enforce https setting.",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Appends the AppService sites object to ensure that  HTTPS only is enabled for  server/service authentication and protects data in transit from network layer eavesdropping attacks. Please note Append does not enforce compliance use then deny.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "App Service",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud",
+    "AzureChinaCloud",
+    "AzureUSGovernment"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:24.804004Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:04.8156546Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Append",
+     "Disabled"
+    ],
+    "defaultValue": "Append"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Web/sites"
+     },
+     {
+      "field": "Microsoft.Web/sites/httpsOnly",
+      "notequals": true
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": [
+     {
+      "field": "Microsoft.Web/sites/httpsOnly",
+      "value": true
+     }
+    ]
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Append-AppService-httpsonly",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Append-AppService-httpsonly"
+}

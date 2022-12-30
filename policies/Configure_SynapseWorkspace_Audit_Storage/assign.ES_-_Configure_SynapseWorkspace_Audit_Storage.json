@@ -1,0 +1,26 @@
+{
+ "identity": {
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "ES - Configure Synapse workspaces to have auditing enabled",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Configure_SynapseWorkspace_Audit_Storage",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "parameters": {
+   "storageAccountsResourceGroup": {
+    "value": "test"
+   }
+  },
+  "metadata": {
+   "parameterScopes": {
+    "storageAccountsResourceGroup": "/subscriptions/8194f7dc-68ee-4dff-a67e-b01eec9ed54d"
+   }
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/99f5b094bba2",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "99f5b094bba2",
+ "location": "westeurope"
+}

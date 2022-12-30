@@ -1,0 +1,59 @@
+{
+ "properties": {
+  "displayName": "No child resources in Automation Account",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "This policy denies the creation of child resources on the Automation Account",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Automation",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud",
+    "AzureUSGovernment"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:24.736831Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:04.3910243Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "in": [
+       "Microsoft.Automation/automationAccounts/runbooks",
+       "Microsoft.Automation/automationAccounts/variables",
+       "Microsoft.Automation/automationAccounts/modules",
+       "Microsoft.Automation/automationAccounts/credentials",
+       "Microsoft.Automation/automationAccounts/connections",
+       "Microsoft.Automation/automationAccounts/certificates"
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-AA-child-resources",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-AA-child-resources"
+}

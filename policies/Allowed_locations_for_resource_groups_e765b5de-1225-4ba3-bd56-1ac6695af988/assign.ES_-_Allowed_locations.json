@@ -1,0 +1,20 @@
+{
+ "properties": {
+  "displayName": "ES - Allowed locations for Resource Groups",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "parameters": {
+    "listOfAllowedLocations": {
+     "value": [
+      "northeurope",
+      "westeurope"
+     ]
+    }
+   },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/e5991a2128f7",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "e5991a2128f7"
+}

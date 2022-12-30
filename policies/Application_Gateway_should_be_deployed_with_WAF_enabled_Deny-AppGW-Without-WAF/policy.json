@@ -1,0 +1,57 @@
+{
+ "properties": {
+  "displayName": "Application Gateway should be deployed with WAF enabled",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "This policy enables you to restrict that Application Gateways is always deployed with WAF enabled",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Network",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud",
+    "AzureChinaCloud",
+    "AzureUSGovernment"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:20.3906807Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:02.8143787Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/applicationGateways"
+     },
+     {
+      "field": "Microsoft.Network/applicationGateways/sku.name",
+      "notequals": "WAF_v2"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-AppGW-Without-WAF",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-AppGW-Without-WAF"
+}

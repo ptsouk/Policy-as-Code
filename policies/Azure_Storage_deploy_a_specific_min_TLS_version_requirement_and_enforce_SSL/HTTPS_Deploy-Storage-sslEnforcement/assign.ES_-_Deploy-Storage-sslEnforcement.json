@@ -1,0 +1,17 @@
+{
+ "properties": {
+  "displayName": "ES - Azure Storage deploy a specific min TLS version requirement and enforce SSL/HTTPS",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deploy-Storage-sslEnforcement",
+  "scope": "/providers/Microsoft.Management/managementGroups/ES",
+  "notScopes": [],
+  "Parameters": {},
+  "enforcementMode": "Default"
+ },
+ "identity": {
+    "type": "SystemAssigned"
+  },
+ "Location": "westeurope",
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyAssignments/84f15a97a530",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "84f15a97a530"
+}

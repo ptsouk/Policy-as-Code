@@ -1,0 +1,67 @@
+{
+ "properties": {
+  "displayName": "Control private endpoint connections to Azure Machine Learning",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Audit private endpoints that are created in other subscriptions and/or tenants for Azure Machine Learning.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Machine Learning",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:22.9801542Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:08.8466159Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Audit"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateLinkServiceConnectionState.status",
+      "equals": "Approved"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateEndpoint.id",
+        "exists": false
+       },
+       {
+        "value": "[split(concat(field('Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateEndpoint.id'), '//'), '/')[2]]",
+        "notEquals": "[subscription().subscriptionId]"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Audit-MachineLearning-PrivateEndpointId",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Audit-MachineLearning-PrivateEndpointId"
+}

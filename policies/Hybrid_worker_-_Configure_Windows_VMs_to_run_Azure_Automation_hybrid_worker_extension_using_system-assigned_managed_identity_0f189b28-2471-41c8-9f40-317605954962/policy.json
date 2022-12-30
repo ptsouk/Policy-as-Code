@@ -1,0 +1,186 @@
+{
+ "properties": {
+  "displayName": "Hybrid worker - Configure Windows VMs to run Azure Automation hybrid worker extension using system-assigned managed identity",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Automate the deployment of Azure Automation hybrid worker extension on Windows virtual machines.",
+  "metadata": {
+   "category": "Automation",
+   "createdBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "createdOn": "2022-05-11T18:22:26.6462439Z",
+   "updatedBy": "07f52fe5-f266-4552-9dcb-af47995355f0",
+   "updatedOn": "2022-05-18T14:48:51.9954285Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy."
+    },
+    "allowedValues": [
+     "DeployIfNotExists",
+     "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+   },
+   "automationAccount": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Automation Account",
+     "description": "Specify the Automation Account the worker should be connected to.",
+     "strongType": "Microsoft.Automation/automationAccounts",
+     "assignPermissions": true
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/virtualMachines"
+     },
+     {
+      "field": "identity.type",
+      "contains": "SystemAssigned"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+     "type": "Microsoft.Compute/virtualMachines/extensions",
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+      "/providers/Microsoft.Authorization/roleDefinitions/f353d9bd-d4a6-484e-a77a-8050b599b867"
+     ],
+     "existenceCondition": {
+      "allOf": [
+       {
+        "field": "Microsoft.Compute/virtualMachines/extensions/type",
+        "equals": "HybridWorkerForWindows"
+       },
+       {
+        "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+        "equals": "Microsoft.Azure.Automation.HybridWorker"
+       },
+       {
+        "field": "Microsoft.Compute/virtualMachines/extensions/provisioningState",
+        "equals": "Succeeded"
+       }
+      ]
+     },
+     "deployment": {
+      "properties": {
+       "mode": "incremental",
+       "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+         "vmName": {
+          "type": "string"
+         },
+         "location": {
+          "type": "string"
+         },
+         "automationAccount": {
+          "type": "string"
+         }
+        },
+        "variables": {
+         "extensionName": "HybridWorkerExtension",
+         "extensionPublisher": "Microsoft.Azure.Automation.HybridWorker",
+         "extensionType": "HybridWorkerForWindows",
+         "extensionTypeHandlerVersion": "0.1",
+         "vmResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+        },
+        "resources": [
+         {
+          "name": "[concat(parameters('vmName'), '/', variables('extensionName'))]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-12-01",
+          "dependsOn": [
+           "nestedHybridRunbookWorkerTemplate"
+          ],
+          "properties": {
+           "publisher": "[variables('extensionPublisher')]",
+           "type": "[variables('extensionType')]",
+           "typeHandlerVersion": "[variables('extensionTypeHandlerVersion')]",
+           "autoUpgradeMinorVersion": true,
+           "settings": {
+            "AutomationAccountURL": "[reference(parameters('automationAccount'), '2021-06-22').AutomationHybridServiceUrl]"
+           }
+          }
+         },
+         {
+          "type": "Microsoft.Resources/deployments",
+          "apiVersion": "2021-04-01",
+          "name": "nestedHybridRunbookWorkerTemplate",
+          "properties": {
+           "mode": "Incremental",
+           "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+             "workerGroupName": {
+              "type": "string"
+             },
+             "automationAccountName": {
+              "type": "string"
+             },
+             "vmResourceId": {
+              "type": "string"
+             },
+             "_CurrentDateTimeInTicks": {
+              "type": "string",
+              "defaultValue": "[utcNow('yyyy-MM-dd')]"
+             }
+            },
+            "resources": [
+             {
+              "type": "Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups",
+              "apiVersion": "2021-06-22",
+              "name": "[parameters('workerGroupName')]"
+             },
+             {
+              "name": "[concat(parameters('automationAccountName'), '/', parameters('workerGroupName'),'/',guid(parameters('vmResourceId'))]",
+              "type": "Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers",
+              "apiVersion": "2021-06-22",
+              "dependsOn": [
+               "[resourceId('Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups', parameters('workerGroupName'))]"
+              ],
+              "properties": {
+               "vmResourceId": "[parameters('vmResourceId')]"
+              }
+             }
+            ]
+           },
+           "resourceGroup": "certMon-rg",
+           "subscriptionId": "8194f7dc-68ee-4dff-a67e-b01eec9ed54d"
+          }
+         }
+        ]
+       },
+       "parameters": {
+        "vmName": {
+         "value": "[field('name')]"
+        },
+        "location": {
+         "value": "[field('location')]"
+        },
+        "automationAccount": {
+         "value": "[parameters('automationAccount')]"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/a6e09f1d-1f05-497b-b499-da099ced752f/providers/Microsoft.Authorization/policyDefinitions/0f189b28-2471-41c8-9f40-317605954962",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "0f189b28-2471-41c8-9f40-317605954962"
+}

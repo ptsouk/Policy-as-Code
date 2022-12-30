@@ -1,0 +1,32 @@
+name: policy-compliance-scan-default
+on:
+  #schedule:
+    #- cron:  '0 8 * * *'  # runs every morning 8am
+    #- cron: '5 4 * * 1' # runs at 04:05 on Monday.
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Executing Compliance Scan'
+      ReportName:
+        description: 'The name of the report artifact'
+        required: true
+        default: 'my_report'
+jobs:
+  assess-policy-compliance:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.POLICY_COMPLIANCE_SCAN}}
+        allow-no-subscriptions: true
+        enable-AzPSSession: true
+
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: | 
+          /subscriptions/8194f7dc-68ee-4dff-a67e-b01eec9ed54d/resourceGroups/testRole
+        report-name: '${{github.event.inputs.ReportName}}'

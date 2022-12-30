@@ -1,0 +1,67 @@
+{
+ "properties": {
+  "displayName": "Deny AKS cluster creation in Azure Machine Learning",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Deny AKS cluster creation in Azure Machine Learning and enforce connecting to existing clusters.",
+  "metadata": {
+   "version": "1.0.0",
+   "category": "Machine Learning",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "alzCloudEnvironments": [
+    "AzureCloud"
+   ],
+   "createdBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "createdOn": "2022-12-05T16:32:22.6805307Z",
+   "updatedBy": "11c42046-9599-45f1-8003-a2903fd484a8",
+   "updatedOn": "2022-12-30T13:05:07.9870858Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Disabled",
+     "Deny"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+      "equals": "AKS"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/resourceId",
+        "exists": false
+       },
+       {
+        "value": "[empty(field('Microsoft.MachineLearningServices/workspaces/computes/resourceId'))]",
+        "equals": true
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ES/providers/Microsoft.Authorization/policyDefinitions/Deny-MachineLearning-Aks",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-MachineLearning-Aks"
+}
